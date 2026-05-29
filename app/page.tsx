@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 // app/page.tsx  ─  Tila Liao Portfolio
 
 const projects = [
@@ -105,30 +106,32 @@ export default function Home() {
           </span>
 
           <div className="flex gap-8">
-            {["About", "Projects", "Tools", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                style={{
-                  fontFamily: "var(--font-dm-sans)",
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "var(--text-muted)",
-                  textDecoration: "none",
-                  transition: "color 0.2s",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "var(--text-primary)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "var(--text-muted)")
-                }
-              >
-                {item}
-              </a>
-            ))}
-          </div>
+  {['About', 'Projects', 'Tools', 'Contact'].map((item, i) => (
+    <React.Fragment key={item}>
+      {i > 0 && <span style={{ color: "var(--border-color)", fontSize: "0.55rem", margin: "0 0.4rem"}}>·</span>}
+      <a 
+        href={`#${item.toLowerCase()}`}
+        style={{
+          fontFamily: "var(--font-dm-sans)",
+          fontSize: "0.65rem",
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "var(--text-muted)",
+          textDecoration: "none",
+          transition: "color 0.2s",
+        }}
+        onMouseEnter={(e) =>
+          (e.currentTarget.style.color = "var(--text-primary)")
+        }
+        onMouseLeave={(e) =>
+          (e.currentTarget.style.color = "var(--text-muted)")
+        }
+      >
+        {item}
+      </a>
+    </React.Fragment>
+  ))}
+</div>
         </div>
       </nav>
 
@@ -220,7 +223,7 @@ export default function Home() {
               letterSpacing: "0.01em",
             }}
           >
-            I find patterns in data,
+            Finding patterns in data,
             <br />
             and possibilities in people.
           </p>
@@ -653,8 +656,7 @@ export default function Home() {
               margin: "0 auto 2.5rem",
             }}
           >
-            Whether you have an opportunity, a question, or just want to say hi
-            — my inbox is always open.
+            I'm always open to connect, learn from others, and explore new opportunities.
           </p>
 
           {/* Contact card */}
@@ -747,7 +749,7 @@ export default function Home() {
             opacity: 0.7,
           }}
         >
-          made with care · Tila Liao © 2025
+          Designed & developed by Tila Liao © 2026
         </p>
       </footer>
     </>

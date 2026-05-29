@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans, Caveat } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, Gloria_Hallelujah } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -17,10 +17,10 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const caveat = Caveat({
+const gloriaHallelujah = Gloria_Hallelujah({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-caveat",
+  weight: ["400"],
+  variable: "--font-caveat",   // ← variable 名故意不變，page.tsx 就不用動
   display: "swap",
 });
 
@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant.variable} ${dmSans.variable} ${caveat.variable} antialiased`}
+        className={`${cormorant.variable} ${dmSans.variable} ${gloriaHallelujah.variable} antialiased`}
       >
         {children}
       </body>
