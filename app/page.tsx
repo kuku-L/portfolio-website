@@ -1101,51 +1101,201 @@ export default function Home()
 </div>
 )}
 
-            {/* ── PROJECT 2: Music Store — left image, right text ── */}
+             {/* ── PROJECT 2: Music Store — left image, right text ── */}
             {activeProject === 2 && (
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "420px" }}>
-                <div style={{ background: "var(--cream-dark)", display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
-                  <img
-                    src="/architecture.png"
-                    alt="Music Store Architecture"
-                    style={{ width: "100%", objectFit: "contain", maxHeight: "360px" }}
-                  />
-                </div>
-                <div style={{ padding: "3rem 2.5rem 2rem" }}>
-                  <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#C27088", marginBottom: "1.5rem" }}>꒰ Music Store System ꒱</p>
-                  {[
-                    { label: "Task", text: "Develop a modular inventory and order management system using object-oriented programming principles." },
-                    { label: "My Role", bullets: [
-                      "Designed system architecture and class structure",
-                      "Implemented inventory and order management logic",
-                      "Structured the project using OOP principles",
-                    ]},
-                    { label: "Key Outcome", text: "Built a modular Java application featuring customer management, inventory tracking, and order processing." },
-                    { label: "What I Learned", text: "Strengthened understanding of inheritance, abstraction, enums, modular design, and maintainable software architecture." },
-                  ].map(item => (
-                    <div key={item.label} style={{ marginBottom: "1.2rem" }}>
-                      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#C27088", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.3rem" }}>{item.label}</p>
-                      {"bullets" in item ? (
-                        <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
-                          {item.bullets!.map(point => (
-                            <li key={point} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: "0.2rem", display: "flex", gap: "0.5rem" }}>
-                              <span style={{ color: "#C27088", flexShrink: 0 }}>·</span>{point}
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)" }}>{item.text}</p>
-                      )}
-                    </div>
-                  ))}
-                  <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
-                    {["Java", "IntelliJ IDEA", "OOP Design"].map(t => (
-                      <span key={t} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", background: "#F8EEEF", border: "1px solid #EDD5D8", padding: "3px 9px", color: "#C27088" }}>{t}</span>
-                    ))}
+              <div>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "420px" }}>
+                  <div style={{ background: "var(--cream-dark)", display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
+                    <img
+                      src="/architecture.png"
+                      alt="Music Store Architecture"
+                      style={{ width: "100%", objectFit: "contain", maxHeight: "360px" }}
+                    />
                   </div>
+                  <div style={{ padding: "3rem 2.5rem 2rem" }}>
+                    <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#C27088", marginBottom: "1.5rem" }}>꒰ Music Store System ꒱</p>
+                    {[
+                      { label: "Task", text: "Develop a modular inventory and order management system using object-oriented programming principles." },
+                      { label: "My Role", bullets: [
+                        "Designed system architecture and class structure",
+                        "Implemented inventory and order management logic",
+                        "Structured the project using OOP principles",
+                      ]},
+                      { label: "Key Outcome", text: "Built a modular Java application featuring customer management, inventory tracking, and order processing." },
+                      { label: "What I Learned", text: "Strengthened understanding of inheritance, abstraction, enums, modular design, and maintainable software architecture." },
+                    ].map(item => (
+                      <div key={item.label} style={{ marginBottom: "1.2rem" }}>
+                        <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#C27088", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.3rem" }}>{item.label}</p>
+                        {"bullets" in item ? (
+                          <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                            {item.bullets!.map(point => (
+                              <li key={point} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: "0.2rem", display: "flex", gap: "0.5rem" }}>
+                                <span style={{ color: "#C27088", flexShrink: 0 }}>·</span>{point}
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)" }}>{item.text}</p>
+                        )}
+                      </div>
+                    ))}
+                    <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
+                      {["Java", "IntelliJ IDEA", "OOP Design"].map(t => (
+                        <span key={t} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", background: "#F8EEEF", border: "1px solid #EDD5D8", padding: "3px 9px", color: "#C27088" }}>{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── BEHIND THE SYSTEM ── */}
+                <div style={{ padding: "2rem 2.5rem 3rem", borderTop: "1px solid var(--border-color)" }}>
+                  <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#C27088", marginBottom: "2rem" }}>
+                    ✿ behind the system
+                  </p>
+
+                  {/* System Architecture */}
+                  <div style={{ marginBottom: "2rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "1.2rem" }}>
+                      <div style={{ height: "1px", width: "24px", background: "#C27088", opacity: 0.5 }} />
+                      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>System Architecture</p>
+                      <div style={{ height: "1px", flex: 1, background: "#C27088", opacity: 0.2 }} />
+                    </div>
+                    <div style={{ transform: "rotate(-0.6deg)" }}>
+                      <div style={{ background: "#fff", border: "1px solid var(--border-color)", overflow: "hidden" }} className="paper-shadow">
+                        <div style={{ background: "#EDD5D8", height: "8px" }} />
+                        <img src="/architecture.png" alt="Architecture" style={{ width: "100%", display: "block", maxHeight: "260px", objectFit: "contain", background: "#fff", padding: "1rem" }} />
+                        <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
+                          <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>architecture.png</p>
+                          <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                            Structured the application into interconnected classes that manage customers, orders, and inventory operations within the store system.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Project Structure */}
+                  <div style={{ marginBottom: "2rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "1.2rem" }}>
+                      <div style={{ height: "1px", width: "24px", background: "#C27088", opacity: 0.5 }} />
+                      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>Project Structure</p>
+                      <div style={{ height: "1px", flex: 1, background: "#C27088", opacity: 0.2 }} />
+                    </div>
+                    <div style={{ transform: "rotate(0.5deg)" }}>
+                      <div style={{ background: "#fff", border: "1px solid var(--border-color)", overflow: "hidden" }} className="paper-shadow">
+                        <div style={{ background: "#EDD5D8", height: "8px" }} />
+                        <img src="/IntelliJ project structure.png" alt="IntelliJ Project Structure" style={{ width: "100%", display: "block", maxHeight: "260px", objectFit: "contain", background: "#1e1e2e", padding: "1rem" }} />
+                        <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
+                          <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>IntelliJ project structure.png</p>
+                          <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                            Organized the application into multiple classes, including customers, orders, inventory items, and store management components, following object-oriented design principles.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Core Logic */}
+                  <div style={{ marginBottom: "2rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "1.2rem" }}>
+                      <div style={{ height: "1px", width: "24px", background: "#C27088", opacity: 0.5 }} />
+                      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>Core Logic</p>
+                      <div style={{ height: "1px", flex: 1, background: "#C27088", opacity: 0.2 }} />
+                    </div>
+                    <div style={{ transform: "rotate(-0.4deg)" }}>
+                      <div style={{ background: "#fff", border: "1px solid #EDD5D8", overflow: "hidden" }} className="paper-shadow">
+                        <div style={{ background: "#EDD5D8", height: "8px" }} />
+                        <div style={{ background: "#FDF8F9", padding: "1.2rem 1.4rem", fontFamily: "monospace", fontSize: "0.78rem", lineHeight: 1.8, color: "#5A4A4E", borderBottom: "1px solid #EDD5D8" }}>
+                          <span style={{ color: "#C27088" }}>public </span>
+                          <span style={{ color: "#B48C25" }}>Order</span>
+                          <span>(</span>
+                          <span style={{ color: "#5585BE" }}>int </span>
+                          <span>orderID, </span>
+                          <span style={{ color: "#5585BE" }}>List</span>
+                          <span>&lt;StoreItem&gt; items, </span>
+                          <span style={{ color: "#5585BE" }}>Date </span>
+                          <span>purchaseDate, </span>
+                          <span style={{ color: "#5585BE" }}>double </span>
+                          <span>total) {"{"}</span>
+                          <br />
+                          <span style={{ paddingLeft: "1.5rem", display: "block" }}><span style={{ color: "#5A8060" }}>this</span>.orderID = orderID;</span>
+                          <span style={{ paddingLeft: "1.5rem", display: "block" }}><span style={{ color: "#5A8060" }}>this</span>.items = items;</span>
+                          <span style={{ paddingLeft: "1.5rem", display: "block" }}><span style={{ color: "#5A8060" }}>this</span>.purchaseDate = purchaseDate;</span>
+                          <span style={{ paddingLeft: "1.5rem", display: "block" }}><span style={{ color: "#5A8060" }}>this</span>.total = total;</span>
+                          <span>{"}"}</span>
+                        </div>
+                        <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)" }}>
+                          <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                            Implemented an order system that stores purchased items, purchase dates, and transaction totals, enabling structured order tracking.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* User Interface */}
+                  <div style={{ marginBottom: "2rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "1.2rem" }}>
+                      <div style={{ height: "1px", width: "24px", background: "#C27088", opacity: 0.5 }} />
+                      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>User Interface</p>
+                      <div style={{ height: "1px", flex: 1, background: "#C27088", opacity: 0.2 }} />
+                    </div>
+                    <div style={{ transform: "rotate(0.7deg)" }}>
+                      <div style={{ background: "#fff", border: "1px solid #EDD5D8", overflow: "hidden" }} className="paper-shadow">
+                        <div style={{ background: "#EDD5D8", height: "8px" }} />
+                        <div style={{ background: "#FDF8F9", padding: "1.2rem 1.4rem", fontFamily: "monospace", fontSize: "0.78rem", lineHeight: 2, color: "#5A4A4E", borderBottom: "1px solid #EDD5D8" }}>
+                          <p style={{ color: "#C27088", marginBottom: "0.4rem", fontFamily: "var(--font-caveat)", fontSize: "0.85rem" }}>--- Music Store Management System ---</p>
+                          {[
+                            "1. Add a new customer",
+                            "2. Display a list of all customers",
+                            "3. Add a new record to the store inventory",
+                            "4. Add a new t-shirt to the store inventory",
+                            "5. Display a list of all items and their stock levels",
+                            "6. Update the stock level of an item",
+                            "7. Enter and store details of a new customer order",
+                            "8. Output a list of all orders placed this month",
+                            "9. Exit the program",
+                          ].map((line, i) => (
+                            <div key={i} style={{ display: "flex", gap: "0.5rem" }}>
+                              <span style={{ color: "#C27088", flexShrink: 0, opacity: 0.6 }}>›</span>
+                              <span>{line}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)" }}>
+                          <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                            Developed a menu-driven console interface that allows users to manage customers, inventory, orders, and stock updates through a centralized system.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Workflow */}
+                  <div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "1.2rem" }}>
+                      <div style={{ height: "1px", width: "24px", background: "#C27088", opacity: 0.5 }} />
+                      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>Workflow</p>
+                      <div style={{ height: "1px", flex: 1, background: "#C27088", opacity: 0.2 }} />
+                    </div>
+                    <div style={{ transform: "rotate(-0.5deg)" }}>
+                      <div style={{ background: "#fff", border: "1px solid var(--border-color)", overflow: "hidden" }} className="paper-shadow">
+                        <div style={{ background: "#EDD5D8", height: "8px" }} />
+                        <img src="/System Flow.png" alt="System Flow" style={{ width: "100%", display: "block", maxHeight: "260px", objectFit: "contain", background: "#fff", padding: "1rem" }} />
+                        <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
+                          <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>System Flow.png</p>
+                          <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                            Designed a workflow showing how customer orders interact with inventory records and update store stock levels.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             )}
+
 
             {/* ── PROJECT 3: ICU — top AUC chart, bottom two-col text ── */}
 {activeProject === 3 && (
