@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 // app/page.tsx  ─  Tila Liao Portfolio
 
 const projects = [
@@ -50,8 +50,8 @@ const projects = [
     title: "Income Distribution Analysis",
     description:
       "Applied statistical visualization and modelling to analyse income distribution patterns across different customer educational backgrounds.",
-    tools: ["R", "ggplot2", "Bootstrap Sampling"],
-    rotate: "-0.6deg",
+    tools: ["R", "ggplot2", "Bootstrap Sampling", "Statistical Modelling"],
+rotate: "-0.6deg",
   },
 ];
 
@@ -88,7 +88,9 @@ const toolGroups = [
   },
 ];
 
-export default function Home() {
+export default function Home()
+ {
+  const [activeProject, setActiveProject] = useState<number | null>(null);
   return (
     <>
       {/* ─────────────── NAV ─────────────── */}
@@ -492,10 +494,11 @@ export default function Home() {
           >
             {projects.map((project) => (
               <div
-                key={project.id}
-                style={{ transform: `rotate(${project.rotate})`, position: "relative" }}
-              >
-                <div
+              key={project.id}
+              style={{ transform: `rotate(${project.rotate})`, position: "relative", cursor: "pointer" }}
+              onClick={() => setActiveProject(project.id)}
+            >
+               <div
                   className="paper-shadow"
                   style={{
                     background: "#FFFFFF",
@@ -816,6 +819,235 @@ export default function Home() {
           Designed & developed by Tila Liao © 2026
         </p>
       </footer>
+     {/* ─────────────── MODAL ─────────────── */}
+      {activeProject !== null && (
+        <div
+          style={{
+            position: "fixed", inset: 0, zIndex: 100,
+            background: "rgba(56,48,42,0.45)",
+            backdropFilter: "blur(6px)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "1.5rem",
+          }}
+          onClick={() => setActiveProject(null)}
+        >
+          <div
+            style={{
+              background: "var(--cream)",
+              maxWidth: "860px", width: "100%",
+              maxHeight: "88vh", overflowY: "auto",
+              position: "relative",
+              boxShadow: "0 8px 40px rgba(0,0,0,0.18)",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setActiveProject(null)}
+              style={{
+                position: "absolute", top: "1rem", left: "1rem",
+                zIndex: 10, background: "var(--cream-dark)",
+                border: "1px solid var(--border-color)",
+                width: "32px", height: "32px",
+                cursor: "pointer", fontSize: "1rem",
+                color: "var(--text-muted)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >
+              ×
+            </button>
+
+            {/* ── PROJECT 1: UE5 — top GIF, bottom two-col ── */}
+            {activeProject === 1 && (
+              <div>
+                <div style={{ width: "100%", maxHeight: "340px", overflow: "hidden" }}>
+                  <img
+                    src="/Hero Image - Movement.gif"
+                    alt="Soccer Game Prototype"
+                    style={{ width: "100%", objectFit: "cover", display: "block" }}
+                  />
+                </div>
+                <div style={{
+                  display: "grid", gridTemplateColumns: "1fr 1fr",
+                  gap: "2rem", padding: "2.5rem 2.5rem 2rem",
+                }}>
+                  <div>
+                    <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#5A8060", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>Task</p>
+                    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.85rem", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: "1.5rem" }}>
+                      Develop a gameplay prototype in UE5 to explore core game mechanics and rapid development workflows.
+                    </p>
+                    <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#5A8060", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>My Role</p>
+                    <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                      {[
+                        "Designed gameplay systems and player movement",
+                        "Implemented enemy interactions and projectile mechanics",
+                        "Built UI elements and prototype integration",
+                      ].map(point => (
+                        <li key={point} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: "0.2rem", display: "flex", gap: "0.5rem" }}>
+                          <span style={{ color: "#5A8060", flexShrink: 0 }}>·</span>{point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#5A8060", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>Key Outcome</p>
+                    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.85rem", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: "1.5rem" }}>
+                      Delivered a playable prototype featuring movement, shooting, enemy interaction, obstacles, traps, and pickups.
+                    </p>
+                    <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#5A8060", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>What I Learned</p>
+                    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.85rem", lineHeight: 1.75, color: "var(--text-muted)" }}>
+                      Rapid prototyping, gameplay iteration, UE5 architecture, and how AI-assisted workflows can accelerate development.
+                    </p>
+                  </div>
+                </div>
+                <div style={{ padding: "0 2.5rem 2rem", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                  {["Unreal Engine 5", "C++", "GitLab", "AI-Assisted"].map(t => (
+                    <span key={t} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", letterSpacing: "0.05em", background: "#E2EDE0", border: "1px solid #C5D5C0", padding: "3px 9px", color: "#5A8060" }}>{t}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* ── PROJECT 2: Music Store — left image, right text ── */}
+            {activeProject === 2 && (
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "420px" }}>
+                <div style={{ background: "var(--cream-dark)", display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
+                  <img
+                    src="/architecture.png"
+                    alt="Music Store Architecture"
+                    style={{ width: "100%", objectFit: "contain", maxHeight: "360px" }}
+                  />
+                </div>
+                <div style={{ padding: "3rem 2.5rem 2rem" }}>
+                  <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#C27088", marginBottom: "1.5rem" }}>꒰ Music Store System ꒱</p>
+                  {[
+                    { label: "Task", text: "Develop a modular inventory and order management system using object-oriented programming principles." },
+                    { label: "My Role", bullets: [
+                      "Designed system architecture and class structure",
+                      "Implemented inventory and order management logic",
+                      "Structured the project using OOP principles",
+                    ]},
+                    { label: "Key Outcome", text: "Built a modular Java application featuring customer management, inventory tracking, and order processing." },
+                    { label: "What I Learned", text: "Strengthened understanding of inheritance, abstraction, enums, modular design, and maintainable software architecture." },
+                  ].map(item => (
+                    <div key={item.label} style={{ marginBottom: "1.2rem" }}>
+                      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#C27088", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.3rem" }}>{item.label}</p>
+                      {"bullets" in item ? (
+                        <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                          {item.bullets!.map(point => (
+                            <li key={point} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: "0.2rem", display: "flex", gap: "0.5rem" }}>
+                              <span style={{ color: "#C27088", flexShrink: 0 }}>·</span>{point}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)" }}>{item.text}</p>
+                      )}
+                    </div>
+                  ))}
+                  <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
+                    {["Java", "IntelliJ IDEA", "OOP Design"].map(t => (
+                      <span key={t} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", background: "#F8EEEF", border: "1px solid #EDD5D8", padding: "3px 9px", color: "#C27088" }}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ── PROJECT 3: ICU — top AUC chart, bottom two-col text ── */}
+{activeProject === 3 && (
+  <div>
+    <div style={{ background: "var(--cream-dark)", padding: "2rem 2.5rem" }}>
+      <div style={{ background: "#fff", border: "1px solid var(--border-color)", padding: "1.2rem 1.4rem" }}>
+        <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.9rem", color: "var(--text-muted)", marginBottom: "0.8rem" }}>Model AUC Comparison ✦</p>
+        {[
+          { name: "XGBoost", auc: 0.8876, best: true },
+          { name: "Random Forest", auc: 0.8614, best: false },
+          { name: "Logistic Regression", auc: 0.8539, best: false },
+          { name: "Neural Network", auc: 0.8179, best: false },
+          { name: "Decision Tree", auc: 0.7039, best: false },
+        ].map(m => (
+          <div key={m.name} style={{ marginBottom: "0.5rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "2px" }}>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.7rem", color: m.best ? "#B48C25" : "var(--text-muted)", fontWeight: m.best ? 500 : 400 }}>{m.name}{m.best ? " ★" : ""}</span>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.7rem", color: "var(--text-muted)" }}>{m.auc}</span>
+            </div>
+            <div style={{ height: "5px", background: "var(--cream-dark)", borderRadius: "2px" }}>
+              <div style={{ height: "100%", width: `${(m.auc - 0.65) / 0.28 * 100}%`, background: m.best ? "#F3E3B2" : "#E8E2D8", borderRadius: "2px" }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", padding: "2.5rem 2.5rem 2rem" }}>
+      <div>
+        <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#B48C25", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>Task</p>
+        <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: "1.5rem" }}>Predict ICU mortality risk using clinical data and compare machine learning approaches.</p>
+        <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#B48C25", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>My Role</p>
+        <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+          {["Performed data preparation and feature analysis", "Trained and evaluated multiple ML models", "Visualized results and interpreted model performance"].map(point => (
+            <li key={point} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: "0.2rem", display: "flex", gap: "0.5rem" }}>
+              <span style={{ color: "#B48C25", flexShrink: 0 }}>·</span>{point}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#B48C25", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>Key Outcome</p>
+        <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: "1.5rem" }}>Achieved an AUC of 0.88 while comparing Logistic Regression, Decision Trees, and Neural Networks.</p>
+        <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#B48C25", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>What I Learned</p>
+        <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)" }}>Learned the trade-off between predictive performance, interpretability, and model complexity.</p>
+      </div>
+    </div>
+    <div style={{ padding: "0 2.5rem 2rem", display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+      {["R", "Logistic Regression", "Neural Networks", "XGBoost"].map(t => (
+        <span key={t} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", background: "#FAF0D5", border: "1px solid #F3E3B2", padding: "3px 9px", color: "#B48C25" }}>{t}</span>
+      ))}
+    </div>
+  </div>
+)}
+
+{/* ── PROJECT 4: Income — left text, right image ── */}
+{activeProject === 4 && (
+  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "500px" }}>
+    <div style={{ padding: "3rem 2rem 2rem 2.5rem", overflowY: "auto" }}>
+      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#5585BE", marginBottom: "1.5rem" }}>꒰ Income Distribution ꒱</p>
+      {[
+        { label: "Task", text: "Analyze customer income distributions and communicate statistical insights to non-technical stakeholders." },
+        { label: "My Role", bullets: ["Created visualizations and evaluated statistical models", "Interpreted findings across educational groups", "Translated technical results into actionable insights for managers"] },
+        { label: "Key Outcome", text: "Found income distributions were right-skewed and that Gamma/Exponential distributions fit better than Normal." },
+        { label: "What I Learned", text: "Practical statistical modelling techniques and how to communicate findings through visualisation and stakeholder-focused interpretation." },
+      ].map(item => (
+        <div key={item.label} style={{ marginBottom: "1.2rem" }}>
+          <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#5585BE", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.3rem" }}>{item.label}</p>
+          {"bullets" in item ? (
+            <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+              {item.bullets!.map(point => (
+                <li key={point} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)", marginBottom: "0.2rem", display: "flex", gap: "0.5rem" }}>
+                  <span style={{ color: "#5585BE", flexShrink: 0 }}>·</span>{point}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.75, color: "var(--text-muted)" }}>{item.text}</p>
+          )}
+        </div>
+      ))}
+      <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
+        {["R", "ggplot2", "Bootstrap Sampling", "Statistical Modelling"].map(t => (
+          <span key={t} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", background: "#DDEAF8", border: "1px solid #BEDAF2", padding: "3px 9px", color: "#5585BE" }}>{t}</span>
+        ))}
+      </div>
+    </div>
+    <div style={{ background: "var(--cream-dark)", display: "flex", alignItems: "center", justifyContent: "center", padding: "1.5rem" }}>
+      <img src="/Hero image - statistic.png" alt="Income Distribution QQ Plot" style={{ width: "100%", objectFit: "contain" }} />
+    </div>
+  </div>
+)}
+
+          </div>
+        </div>
+      )}
     </>
   );
 }
