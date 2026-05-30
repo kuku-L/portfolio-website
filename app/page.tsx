@@ -14,6 +14,7 @@ const projects = [
       "An AI-assisted gameplay prototype built in Unreal Engine 5, implementing interactive mechanics including projectile systems and enemy AI interaction.",
     tools: ["Unreal Engine 5", "C++", "GitLab"],
     rotate: "-0.8deg",
+    kaomoji: "(・ω・)",
   },
   {
     id: 2,
@@ -38,6 +39,7 @@ const projects = [
       "Evaluated Logistic Regression, Decision Trees, and Neural Networks for predicting ICU mortality probability, achieving a strong 0.88 AUC score.",
     tools: ["R", "Logistic Regression", "Neural Networks"],
     rotate: "0.8deg",
+    kaomoji: "ʚ♡ɞ",
   },
   {
     id: 4,
@@ -66,7 +68,7 @@ const toolGroups = [
     headerColor: "#EDD5D8",
     pillBg: "#F8EEEF",
     pillText: "#C27088",
-    tools: ["GitHub Copilot", "IntelliJ IDEA", "VS Code"],
+    tools: ["GitHub Copilot", "IntelliJ IDEA", "VS Code"], 
   },
   {
     category: "Prototyping",
@@ -74,6 +76,7 @@ const toolGroups = [
     pillBg: "#FAF0D5",
     pillText: "#B48C25",
     tools: ["Unreal Engine 5", "R Language", "Java"],
+    deco: "✶ ✸ ✶" 
   },
   {
     category: "Visualization",
@@ -81,6 +84,7 @@ const toolGroups = [
     pillBg: "#DDEAF8",
     pillText: "#5585BE",
     tools: ["ggplot2", "Excalidraw"],
+     deco: "❀ ✿ ❀"
   },
 ];
 
@@ -379,48 +383,83 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Sticky-note card */}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <div
-                className="paper-shadow"
-                style={{
-                  background: "var(--yellow-light)",
-                  border: "1px solid var(--yellow)",
-                  padding: "2.5rem 2.2rem",
-                  maxWidth: "300px",
-                  transform: "rotate(1.8deg)",
-                  fontFamily: "var(--font-caveat)",
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: "1rem",
-                    color: "var(--yellow-accent)",
-                    marginBottom: "1rem",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  quick facts ✦
-                </p>
-                <ul
-                  style={{
-                    fontSize: "1.15rem",
-                    lineHeight: 2.1,
-                    color: "var(--text-primary)",
-                    listStyle: "none",
-                  }}
-                >
-                  <li>📍 Based in Taiwan</li>
-                  <li>🎓 Business Analytics</li>
-                  <li>🌏 Targeting global roles</li>
-                  <li>💡 ML × Business Strategy</li>
-                  <li>🛠 R · Java · UE5 · AI tools</li>
-                </ul>
-              </div>
+            {/* Lined notebook card */}
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <div style={{ position: "relative", maxWidth: "300px", width: "100%" }}>
+    {/* Washi tape top */}
+    <div style={{
+      position: "absolute", top: "-8px", left: "30px",
+      width: "80px", height: "13px",
+      background: "#C5D5C0", opacity: 0.8,
+      transform: "rotate(-2deg)", borderRadius: "2px", zIndex: 3,
+    }}/>
+    {/* Notebook */}
+    <div className="paper-shadow" style={{
+      background: "#FEFEFE",
+      border: "1px solid var(--border-color)",
+      transform: "rotate(1.5deg)",
+      overflow: "hidden",
+    }}>
+      {/* Red margin line */}
+      <div style={{ display: "flex" }}>
+        <div style={{
+          width: "28px", minHeight: "100%",
+          background: "rgba(220,150,150,0.12)",
+          borderRight: "1.5px solid rgba(220,130,130,0.3)",
+          flexShrink: 0,
+        }}/>
+        {/* Lined content */}
+        <div style={{
+          flex: 1,
+          backgroundImage: "linear-gradient(rgba(160,148,138,0.15) 1px, transparent 1px)",
+          backgroundSize: "100% 32px",
+          padding: "1rem 1rem 1rem 0.75rem",
+        }}>
+          <p style={{
+            fontFamily: "var(--font-caveat)",
+            fontSize: "1rem",
+            color: "var(--text-muted)",
+            marginBottom: "0",
+            lineHeight: "32px",
+            paddingBottom: "32px",
+          }}>
+            ✿ quick notes ✿
+          </p>
+          {[
+            { icon: "📍", text: "Based in Taiwan" },
+            { icon: "🎓", text: "Business Analytics" },
+            { icon: "🌏", text: "Targeting global roles" },
+            { icon: "💡", text: "ML × Business Strategy" },
+            { icon: "🛠", text: "R · Java · UE5 · AI" },
+          ].map((item) => (
+            <div key={item.text} style={{
+              fontFamily: "var(--font-caveat)",
+              fontSize: "1.05rem",
+              color: "var(--text-primary)",
+              lineHeight: "32px",
+            }}>
+              {item.icon} {item.text}
             </div>
-          </div>
+          ))}
+          <p style={{
+            fontFamily: "var(--font-caveat)",
+            fontSize: "0.8rem",
+            color: "var(--text-muted)",
+            lineHeight: "32px",
+            textAlign: "right",
+            opacity: 0.6,
+          }}>
+            ₊˚✧ always learning
+         </p>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+</section>
 
       {/* ─────────────── PROJECTS ─────────────── */}
       <section
@@ -454,12 +493,14 @@ export default function Home() {
             {projects.map((project) => (
               <div
                 key={project.id}
-                style={{ transform: `rotate(${project.rotate})` }}
+                style={{ transform: `rotate(${project.rotate})`, position: "relative" }}
               >
                 <div
                   className="paper-shadow"
                   style={{
                     background: "#FFFFFF",
+                    backgroundImage: "linear-gradient(rgba(160,148,138,0.07) 1px, transparent 1px)",
+                    backgroundSize: "100% 28px",
                     border: "1px solid var(--border-color)",
                     overflow: "hidden",
                     transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -472,6 +513,20 @@ export default function Home() {
                     e.currentTarget.style.transform = "";
                   }}
                 >
+                  {project.kaomoji && (
+                  <div style={{
+                   position: "absolute",
+                  top: "10px",
+                  right: "14px",
+                  fontFamily: "var(--font-caveat)",
+                  fontSize: "0.85rem",
+                  color: project.tagAccent,
+                  opacity: 0.65,
+                  zIndex: 2,
+                }}>
+                  {project.kaomoji}
+                </div>
+              )}
                   {/* Washi-tape header strip */}
                   <div
                     style={{
@@ -589,16 +644,25 @@ export default function Home() {
                     padding: "10px 18px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "var(--font-caveat)",
-                      fontSize: "1rem",
-                      color: group.pillText,
-                    }}
-                  >
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span style={{
+                    fontFamily: "var(--font-caveat)",
+                    fontSize: "1rem",
+                    color: group.pillText,
+                  }}>
                     {group.category}
                   </span>
+                  <span style={{
+                    fontFamily: "var(--font-caveat)",
+                    fontSize: "0.75rem",
+                    color: group.pillText,
+                    opacity: 0.7,
+                    letterSpacing: "0.1em",
+                  }}>
+                    {group.deco}
+                  </span>
                 </div>
+                </div>   
 
                 {/* Tools */}
                 <div style={{ padding: "1.25rem 1.1rem", display: "flex", flexWrap: "wrap", gap: "0.45rem" }}>
