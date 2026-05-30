@@ -91,6 +91,7 @@ const toolGroups = [
 export default function Home()
  {
   const [activeProject, setActiveProject] = useState<number | null>(null);
+  const [openSection, setOpenSection] = useState<number>(0);
   return (
     <>
       {/* ─────────────── NAV ─────────────── */}
@@ -905,8 +906,200 @@ export default function Home()
                     <span key={t} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", letterSpacing: "0.05em", background: "#E2EDE0", border: "1px solid #C5D5C0", padding: "3px 9px", color: "#5A8060" }}>{t}</span>
                   ))}
                 </div>
+                {/* ── GALLERY ── */}
+<div style={{ padding: "2rem 2.5rem 3rem", borderTop: "1px solid var(--border-color)" }}>
+
+  <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#C27088", marginBottom: "1.5rem" }}>
+    ✿ gallery
+  </p>
+
+  {[
+    {
+      title: "Player Feedback System",
+      content: (
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+          <div style={{ transform: "rotate(-0.8deg)" }}>
+            <div style={{ background: "#fff", border: "1px solid var(--border-color)", overflow: "hidden" }} className="paper-shadow">
+              <div style={{ background: "#C5D5C0", height: "8px" }} />
+              <img src="/Hero Image - Movement.gif" alt="Movement" style={{ width: "100%", display: "block", maxHeight: "160px", objectFit: "cover" }} />
+              <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
+                <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>Hero Image - Movement.gif</p>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                  Players can <span style={{ color: "#C27088" }}>move</span> using the <span style={{ color: "#C27088" }}>W, A, S, D</span> keys, and <span style={{ color: "#C27088" }}>jump</span> using the <span style={{ color: "#C27088" }}>Spacebar</span>.
+                </p>
               </div>
-            )}
+            </div>
+          </div>
+          <div style={{ transform: "rotate(0.6deg)" }}>
+            <div style={{ background: "#fff", border: "1px solid var(--border-color)", overflow: "hidden" }} className="paper-shadow">
+              <div style={{ background: "#C5D5C0", height: "8px" }} />
+              <img src="/Interaction.gif" alt="Interaction" style={{ width: "100%", display: "block", maxHeight: "160px", objectFit: "cover" }} />
+              <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
+                <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>Interaction.gif</p>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                  The ball glows green when approached, and a short animation plays when a goal is scored.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Risk & Challenge Mechanic",
+      content: (
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+          <div style={{ transform: "rotate(0.9deg)" }}>
+            <div style={{ background: "#fff", border: "1px solid var(--border-color)", overflow: "hidden" }} className="paper-shadow">
+              <div style={{ background: "#C5D5C0", height: "8px" }} />
+              <img src="/Obstacles.gif" alt="Obstacles" style={{ width: "100%", display: "block", maxHeight: "160px", objectFit: "cover" }} />
+              <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
+                <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>Obstacles.gif</p>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                  Obstacles block the player's movement.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div style={{ transform: "rotate(-0.5deg)" }}>
+            <div style={{ background: "#fff", border: "1px solid var(--border-color)", overflow: "hidden" }} className="paper-shadow">
+              <div style={{ background: "#C5D5C0", height: "8px" }} />
+              <img src="/Traps.gif" alt="Traps" style={{ width: "100%", display: "block", maxHeight: "160px", objectFit: "cover" }} />
+              <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
+                <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>Traps.gif</p>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                  Stepping on a trap temporarily freezes the player and enemy.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Resource Collection System",
+      content: (
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+          <div style={{ transform: "rotate(-0.7deg)" }}>
+            <div style={{ background: "#fff", border: "1px solid var(--border-color)", overflow: "hidden" }} className="paper-shadow">
+              <div style={{ background: "#C5D5C0", height: "8px" }} />
+              <img src="/Element Pickup.gif" alt="Element Pickup" style={{ width: "100%", display: "block", maxHeight: "160px", objectFit: "cover" }} />
+              <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
+                <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>Element Pickup.gif</p>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                  Before the first shooting, players can collect element.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div style={{ transform: "rotate(0.8deg)" }}>
+            <div style={{ background: "#fff", border: "1px solid var(--border-color)", overflow: "hidden" }} className="paper-shadow">
+              <div style={{ background: "#C5D5C0", height: "8px" }} />
+              <img src="/Element options.gif" alt="Element options" style={{ width: "100%", display: "block", maxHeight: "160px", objectFit: "cover" }} />
+              <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
+                <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>Element options.gif</p>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                  Press <span style={{ color: "#C27088" }}>I</span> to open the <span style={{ color: "#C27088" }}>element menu</span>, use <span style={{ color: "#C27088" }}>J / L</span> to <span style={{ color: "#C27088" }}>navigate</span>, and <span style={{ color: "#C27088" }}>K</span> to <span style={{ color: "#C27088" }}>confirm</span>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Element-Based Combat System",
+      content: (
+        <div>
+          <div style={{ transform: "rotate(-0.4deg)", marginBottom: "1rem" }}>
+            <div style={{ background: "#fff", border: "1px solid var(--border-color)", overflow: "hidden" }} className="paper-shadow">
+              <div style={{ background: "#C5D5C0", height: "8px" }} />
+              <img src="/Projectile Shooting.gif" alt="Projectile Shooting" style={{ width: "100%", display: "block", maxHeight: "180px", objectFit: "cover" }} />
+              <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
+                <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>Projectile Shooting.gif</p>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+                  Players can <span style={{ color: "#C27088" }}>fire projectiles</span> by pressing <span style={{ color: "#C27088" }}>O</span>.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0.8rem" }}>
+            {[
+              { emoji: "💧", label: "Water Element", color: "#BEDAF2", accent: "#5585BE", desc: "Slows enemy movement for seconds." },
+              { emoji: "🧊", label: "Ice Element",   color: "#DDEAF8", accent: "#5585BE", desc: "Temporarily freezes enemies in place." },
+              { emoji: "🔥", label: "Fire Element",  color: "#F3E3B2", accent: "#B48C25", desc: "Direct damage to enemies." },
+            ].map((el, i) => (
+              <div key={el.label} style={{ transform: `rotate(${i % 2 === 0 ? "-0.6" : "0.7"}deg)` }}>
+                <div style={{ background: el.color, border: "1px solid var(--border-color)", padding: "1rem", textAlign: "center" }} className="paper-shadow">
+                  <p style={{ fontSize: "1.6rem", margin: "0 0 0.4rem" }}>{el.emoji}</p>
+                  <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.85rem", color: el.accent, marginBottom: "0.3rem" }}>{el.label}</p>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.72rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>{el.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ),
+    },
+  ].map((section, idx) => (
+    <div key={section.title} style={{ marginBottom: "0.6rem" }}>
+      {/* Accordion header */}
+      <button
+        onClick={() => setOpenSection(openSection === idx ? -1 : idx)}
+        style={{
+          width: "100%", display: "flex", alignItems: "center",
+          justifyContent: "space-between",
+          background: openSection === idx ? "#F8EEEF" : "var(--cream-dark)",
+          border: `1px solid ${openSection === idx ? "#EDD5D8" : "var(--border-color)"}`,
+          padding: "0.7rem 1rem",
+          cursor: "pointer",
+          transition: "background 0.2s",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+          <span style={{
+            fontFamily: "var(--font-caveat)",
+            fontSize: "0.75rem",
+            color: openSection === idx ? "#C27088" : "var(--text-muted)",
+            letterSpacing: "0.05em",
+          }}>
+            {openSection === idx ? "✿" : "◎"}
+          </span>
+          <span style={{
+            fontFamily: "var(--font-caveat)",
+            fontSize: "0.95rem",
+            color: openSection === idx ? "#C27088" : "var(--text-muted)",
+            fontWeight: openSection === idx ? 600 : 400,
+          }}>
+            {section.title}
+          </span>
+        </div>
+        <span style={{
+          fontFamily: "var(--font-dm-sans)",
+          fontSize: "0.65rem",
+          color: openSection === idx ? "#C27088" : "var(--text-muted)",
+          letterSpacing: "0.1em",
+        }}>
+          {openSection === idx ? "▲ close" : "▼ open"}
+        </span>
+      </button>
+
+      {/* Accordion content */}
+      {openSection === idx && (
+        <div style={{
+          border: "1px solid #EDD5D8",
+          borderTop: "none",
+          padding: "1.2rem 1rem",
+          background: "#FFFCFC",
+        }}>
+          {section.content}
+        </div>
+      )}
+    </div>
+  ))}
+  </div>
+</div>
+)}
 
             {/* ── PROJECT 2: Music Store — left image, right text ── */}
             {activeProject === 2 && (
