@@ -797,6 +797,33 @@ export default function Home()
             >
               0966-116-936
             </p>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "0.7rem",
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                border: "1px solid var(--sage)",
+                color: "var(--sage-accent)",
+                padding: "10px 24px",
+                textDecoration: "none",
+                background: "transparent",
+                display: "inline-block",
+                marginTop: "1.2rem",
+                transition: "background 0.2s",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.background = "var(--sage-light)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.background = "transparent")
+              }
+            >
+              Download Resume
+            </a>
           </div>
         </div>
       </section>
