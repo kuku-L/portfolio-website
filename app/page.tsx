@@ -1347,11 +1347,163 @@ export default function Home()
         <span key={t} style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", background: "#FAF0D5", border: "1px solid #F3E3B2", padding: "3px 9px", color: "#B48C25" }}>{t}</span>
       ))}
     </div>
+    {/* ── PROJECT SHOWCASE ── */}
+<div style={{ padding: "2rem 2.5rem 3rem", borderTop: "1px solid var(--border-color)" }}>
+
+  <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#B48C25", marginBottom: "2rem" }}>
+    ✦ project showcase
+  </p>
+
+  {/* ── Model Performance ── */}
+  <div style={{ marginBottom: "2rem" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.6rem" }}>
+      <div style={{ height: "1px", width: "24px", background: "#B48C25", opacity: 0.5 }} />
+      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>Model Performance</p>
+      <div style={{ height: "1px", flex: 1, background: "#B48C25", opacity: 0.2 }} />
+    </div>
+    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", marginBottom: "1rem", paddingLeft: "0.2rem" }}>
+      Evaluated and compared six machine learning approaches and identified XGBoost as the most accurate approach for estimating ICU mortality risk.
+    </p>
+    <div style={{ transform: "rotate(-0.5deg)" }}>
+      <div style={{ background: "#fff", border: "1px solid #F3E3B2", overflow: "hidden" }} className="paper-shadow">
+        <div style={{ background: "#F3E3B2", height: "8px" }} />
+        <div style={{ background: "#FCF8EE", padding: "1.2rem 1.4rem" }}>
+          <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.85rem", color: "#B48C25", marginBottom: "1rem" }}>Model AUC Comparison ✦</p>
+          {[
+            { name: "XGBoost", auc: 0.8876, best: true },
+            { name: "Weighted Ensemble (XGB 70% + RF 30%)", auc: 0.8826, best: false },
+            { name: "Random Forest", auc: 0.8614, best: false },
+            { name: "Logistic Regression", auc: 0.8539, best: false },
+            { name: "kNN", auc: 0.8483, best: false },
+            { name: "Neural Network", auc: 0.8179, best: false },
+            { name: "Decision Tree", auc: 0.7039, best: false },
+          ].map(m => (
+            <div key={m.name} style={{ marginBottom: "0.6rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "3px" }}>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.7rem", color: m.best ? "#B48C25" : "var(--text-muted)", fontWeight: m.best ? 500 : 400 }}>
+                  {m.name}{m.best ? " ★" : ""}
+                </span>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.7rem", color: "var(--text-muted)" }}>{m.auc}</span>
+              </div>
+              <div style={{ height: "5px", background: "#F0EAE2", borderRadius: "2px" }}>
+                <div style={{ height: "100%", width: `${(m.auc - 0.65) / 0.28 * 100}%`, background: m.best ? "#F3E3B2" : "#E8E2D8", borderRadius: "2px" }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* ── Key Insights ── */}
+  <div style={{ marginBottom: "2rem" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.6rem" }}>
+      <div style={{ height: "1px", width: "24px", background: "#B48C25", opacity: 0.5 }} />
+      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>Key Insights</p>
+      <div style={{ height: "1px", flex: 1, background: "#B48C25", opacity: 0.2 }} />
+    </div>
+    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", marginBottom: "1rem", paddingLeft: "0.2rem" }}>
+      Explored key clinical factors associated with patient outcomes, revealing that age, oxygen levels, blood pressure, and existing health conditions were strongly linked to mortality risk.
+    </p>
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+      {/* Data Insights card */}
+      <div style={{ transform: "rotate(0.6deg)" }}>
+        <div style={{ background: "#fff", border: "1px solid #F3E3B2", overflow: "hidden" }} className="paper-shadow">
+          <div style={{ background: "#F3E3B2", padding: "8px 14px" }}>
+            <span style={{ fontFamily: "var(--font-caveat)", fontSize: "0.85rem", color: "#B48C25" }}>◈ Data Insights</span>
+          </div>
+          <div style={{ padding: "1rem", background: "#FCF8EE" }}>
+            {[
+              "Older patients had higher mortality (~7 years older on average)",
+              "MICU and CCU units had the highest mortality rates",
+              "~11.2% death rate with higher mortality among patients with more comorbidities",
+              "SpO2_Min and MeanBP_Min most negatively correlated with mortality",
+            ].map((point, i) => (
+              <div key={i} style={{ display: "flex", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                <span style={{ color: "#B48C25", flexShrink: 0, fontFamily: "var(--font-caveat)", fontSize: "0.8rem" }}>✦</span>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.72rem", lineHeight: 1.6, color: "var(--text-muted)" }}>{point}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* Feature Engineering card */}
+      <div style={{ transform: "rotate(-0.7deg)" }}>
+        <div style={{ background: "#fff", border: "1px solid #F3E3B2", overflow: "hidden" }} className="paper-shadow">
+          <div style={{ background: "#F3E3B2", padding: "8px 14px" }}>
+            <span style={{ fontFamily: "var(--font-caveat)", fontSize: "0.85rem", color: "#B48C25" }}>◈ Feature Engineering</span>
+          </div>
+          <div style={{ padding: "1rem", background: "#FCF8EE" }}>
+            {[
+              "Engineered: shock index, pulse pressure, SpO2/RespRate ratio",
+              "One-hot encoded: gender, admission type, care unit, insurance",
+              "Added comorbidity features: sepsis, heart failure, renal failure, cancer",
+              "Standardised all predictors; stratified 80/20 train/validation split",
+            ].map((point, i) => (
+              <div key={i} style={{ display: "flex", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                <span style={{ color: "#B48C25", flexShrink: 0, fontFamily: "var(--font-caveat)", fontSize: "0.8rem" }}>✦</span>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.72rem", lineHeight: 1.6, color: "var(--text-muted)" }}>{point}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* ── Risk Predictions ── */}
+  <div>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.6rem" }}>
+      <div style={{ height: "1px", width: "24px", background: "#B48C25", opacity: 0.5 }} />
+      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>Risk Predictions</p>
+      <div style={{ height: "1px", flex: 1, background: "#B48C25", opacity: 0.2 }} />
+    </div>
+    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", marginBottom: "1rem", paddingLeft: "0.2rem" }}>
+      Generated individual mortality risk scores for ICU patients, enabling the model to estimate the probability of adverse outcomes for unseen cases.
+    </p>
+    <div style={{ transform: "rotate(0.4deg)" }}>
+      <div style={{ background: "#fff", border: "1px solid #F3E3B2", overflow: "hidden" }} className="paper-shadow">
+        <div style={{ background: "#F3E3B2", height: "8px" }} />
+        <div style={{ background: "#FCF8EE", padding: "1.2rem 1.4rem" }}>
+          <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.85rem", color: "#B48C25", marginBottom: "1rem" }}>XGBoost Prediction Output ✦</p>
+          {/* Table header */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1.5fr", gap: "0.5rem", marginBottom: "0.5rem", paddingBottom: "0.4rem", borderBottom: "1px solid #F3E3B2" }}>
+            <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.65rem", color: "#B48C25", letterSpacing: "0.08em", textTransform: "uppercase" }}>icustay_id</span>
+            <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.65rem", color: "#B48C25", letterSpacing: "0.08em", textTransform: "uppercase" }}>probability</span>
+            <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.65rem", color: "#B48C25", letterSpacing: "0.08em", textTransform: "uppercase" }}>risk level</span>
+          </div>
+          {[
+            { id: "280003", prob: 0.903, risk: "High", bar: 18 },
+            { id: "204280", prob: 0.620, risk: "High", bar: 12 },
+            { id: "312213", prob: 0.312, risk: "Medium", bar: 6 },
+            { id: "206770", prob: 0.039, risk: "Low", bar: 1 },
+            { id: "206551", prob: 0.003, risk: "Low", bar: 0.5 },
+          ].map(row => (
+            <div key={row.id} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1.5fr", gap: "0.5rem", alignItems: "center", marginBottom: "0.5rem" }}>
+              <span style={{ fontFamily: "monospace", fontSize: "0.72rem", color: "var(--text-muted)" }}>{row.id}</span>
+              <span style={{ fontFamily: "monospace", fontSize: "0.72rem", color: "var(--text-muted)" }}>{row.prob.toFixed(3)}</span>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                <div style={{ height: "6px", width: `${row.bar * 5}px`, maxWidth: "80px", background: row.risk === "High" ? "#C27088" : row.risk === "Medium" ? "#B48C25" : "#C5D5C0", borderRadius: "2px", flexShrink: 0 }} />
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.65rem", color: row.risk === "High" ? "#C27088" : row.risk === "Medium" ? "#B48C25" : "#5A8060" }}>{row.risk}</span>
+              </div>
+            </div>
+          ))}
+          <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginTop: "0.8rem", opacity: 0.7 }}>
+            ✦ showing representative samples from submission_xgboost output
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
   </div>
 )}
 
 {/* ── PROJECT 4: Income — left text, right image ── */}
 {activeProject === 4 && (
+  <div>
   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "500px" }}>
     <div style={{ padding: "3rem 2rem 2rem 2.5rem", overflowY: "auto" }}>
       <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#5585BE", marginBottom: "1.5rem" }}>꒰ Income Distribution ꒱</p>
@@ -1386,10 +1538,171 @@ export default function Home()
       <img src="/Hero image - statistic.png" alt="Income Distribution QQ Plot" style={{ width: "100%", objectFit: "contain" }} />
     </div>
   </div>
-)}
 
+    {/* ── STATISTICAL INSIGHTS ── */}
+<div style={{ padding: "2rem 2.5rem 3rem", borderTop: "1px solid var(--border-color)" }}>
+
+  <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#5585BE", marginBottom: "2rem" }}>
+    ·* statistical insights
+  </p>
+
+  {/* ── Income Distribution ── */}
+  <div style={{ marginBottom: "2rem" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.6rem" }}>
+      <div style={{ height: "1px", width: "24px", background: "#5585BE", opacity: 0.5 }} />
+      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>Income Distribution</p>
+      <div style={{ height: "1px", flex: 1, background: "#5585BE", opacity: 0.2 }} />
+    </div>
+    <div style={{ transform: "rotate(-0.5deg)" }}>
+      <div style={{ background: "#fff", border: "1px solid #BEDAF2", overflow: "hidden" }} className="paper-shadow">
+        <div style={{ background: "#BEDAF2", height: "8px" }} />
+        <img src="/Income Distribution.png" alt="Income Distribution" style={{ width: "100%", display: "block", objectFit: "contain", background: "#fff", padding: "0.5rem" }} />
+        <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid #BEDAF2" }}>
+          <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>Income Distribution.png</p>
+          <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+            Most customers fall within lower income ranges, while a small number of high-income customers create a long right tail in the distribution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* ── Income by Education ── */}
+  <div style={{ marginBottom: "2rem" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.6rem" }}>
+      <div style={{ height: "1px", width: "24px", background: "#5585BE", opacity: 0.5 }} />
+      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>Income by Education</p>
+      <div style={{ height: "1px", flex: 1, background: "#5585BE", opacity: 0.2 }} />
+    </div>
+    <div style={{ transform: "rotate(0.4deg)" }}>
+      <div style={{ background: "#fff", border: "1px solid #BEDAF2", overflow: "hidden" }} className="paper-shadow">
+        <div style={{ background: "#BEDAF2", height: "8px" }} />
+        <img src="/Income Distribution base on different education.png" alt="Income by Education" style={{ width: "100%", display: "block", objectFit: "contain", background: "#fff", padding: "0.5rem" }} />
+        <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid #BEDAF2" }}>
+          <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>Income Distribution base on different education.png</p>
+          <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
+            Income patterns vary across education levels, with postgraduate groups generally concentrated at higher income ranges.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* ── Distribution Fit Analysis ── */}
+  <div style={{ marginBottom: "2rem" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.6rem" }}>
+      <div style={{ height: "1px", width: "24px", background: "#5585BE", opacity: 0.5 }} />
+      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>Distribution Fit Analysis</p>
+      <div style={{ height: "1px", flex: 1, background: "#5585BE", opacity: 0.2 }} />
+    </div>
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0.8rem" }}>
+      {[
+        { file: "QQplot for normal model.png", label: "QQplot for normal model.png", desc: "Poor fit due to strong deviation from the theoretical line.", rotate: "-0.6deg", verdict: "✗ Poor", verdictColor: "#C27088" },
+        { file: "QQplot for Gamma distribution.png", label: "QQplot for Gamma distribution.png", desc: "Closely follows observed data and captures skewness effectively.", rotate: "0.5deg", verdict: "✓ Good", verdictColor: "#5A8060" },
+        { file: "QQplot for exponential distribution.png", label: "QQplot for exponential distribution.png", desc: "Performs similarly to Gamma and provides a strong representation of the data.", rotate: "-0.4deg", verdict: "✓ Good", verdictColor: "#5A8060" },
+      ].map((item) => (
+        <div key={item.file} style={{ transform: `rotate(${item.rotate})` }}>
+          <div style={{ background: "#fff", border: "1px solid #BEDAF2", overflow: "hidden" }} className="paper-shadow">
+            <div style={{ background: "#BEDAF2", height: "8px" }} />
+            <img src={`/${item.file}`} alt={item.label} style={{ width: "100%", display: "block", maxHeight: "160px", objectFit: "contain", background: "#fff" }} />
+            <div style={{ padding: "0.5rem 0.7rem 0.6rem", background: "var(--cream)", borderTop: "1px solid #BEDAF2" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.2rem" }}>
+                <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.68rem", color: "var(--text-muted)", margin: 0, opacity: 0.6 }}>{item.label}</p>
+                <span style={{ fontFamily: "var(--font-caveat)", fontSize: "0.75rem", color: item.verdictColor, flexShrink: 0, marginLeft: "0.3rem" }}>{item.verdict}</span>
+              </div>
+              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.7rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>{item.desc}</p>
+            </div>
           </div>
         </div>
+      ))}
+    </div>
+  </div>
+
+  {/* ── Bootstrap Estimation ── */}
+  <div style={{ marginBottom: "2.5rem" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.6rem" }}>
+      <div style={{ height: "1px", width: "24px", background: "#5585BE", opacity: 0.5 }} />
+      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>Bootstrap Estimation</p>
+      <div style={{ height: "1px", flex: 1, background: "#5585BE", opacity: 0.2 }} />
+    </div>
+    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", marginBottom: "1rem" }}>
+      Bootstrap resampling was used to estimate income percentiles and confidence intervals without relying on strict distribution assumptions.
+    </p>
+    <div style={{ transform: "rotate(0.3deg)" }}>
+      <div style={{ background: "#fff", border: "1px solid #BEDAF2", overflow: "hidden" }} className="paper-shadow">
+        <div style={{ background: "#BEDAF2", height: "8px" }} />
+        <div style={{ background: "#EDF4FB", padding: "1.2rem 1.4rem" }}>
+          <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.85rem", color: "#5585BE", marginBottom: "1rem" }}>Bootstrap 95% CI — 80th Percentile ·*</p>
+          {[
+            { model: "Normal", ci: "[140.4, 184.2]", note: "widest interval", star: false },
+            { model: "Gamma", ci: "[123.5, 162.3]", note: "best fit ★", star: true },
+            { model: "Exponential", ci: "[124.7, 163.3]", note: "strong fit", star: false },
+            { model: "Sample (no model)", ci: "[116.1, 172.7]", note: "model-free", star: false },
+          ].map((row) => (
+            <div key={row.model} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0.5rem", alignItems: "center", marginBottom: "0.6rem", paddingBottom: "0.6rem", borderBottom: "1px solid #DDEAF8" }}>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.72rem", color: row.star ? "#5585BE" : "var(--text-muted)", fontWeight: row.star ? 500 : 400 }}>{row.model}</span>
+              <span style={{ fontFamily: "monospace", fontSize: "0.72rem", color: "var(--text-muted)" }}>{row.ci}</span>
+              <span style={{ fontFamily: "var(--font-caveat)", fontSize: "0.78rem", color: row.star ? "#5585BE" : "var(--text-muted)", opacity: row.star ? 1 : 0.7 }}>{row.note}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* ── Manager Takeaways ── */}
+  <div>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "1rem" }}>
+      <div style={{ height: "1px", width: "24px", background: "#5585BE", opacity: 0.5 }} />
+      <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>ﾟ｡ Manager Takeaways ·*</p>
+      <div style={{ height: "1px", flex: 1, background: "#5585BE", opacity: 0.2 }} />
+    </div>
+    <div style={{ border: "2px solid #BEDAF2", background: "#EDF4FB", padding: "2rem" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+        {/* Key Findings */}
+        <div>
+          <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.3rem", fontWeight: 500, color: "#5585BE", marginBottom: "1rem", letterSpacing: "0.01em" }}>Key Findings</p>
+          {[
+            "Most customers belong to lower income brackets, with a small number of high-income outliers.",
+            "Income distributions are strongly right-skewed and do not follow a normal distribution.",
+            "Gamma and Exponential models provide a substantially better fit than Normal models.",
+            "The estimated 80th percentile income falls around $140k–$150k.",
+            "Bootstrap analysis provides a reliable uncertainty range for decision-making.",
+          ].map((point, i) => (
+            <div key={i} style={{ display: "flex", gap: "0.75rem", marginBottom: "0.75rem", alignItems: "flex-start" }}>
+              <span style={{ color: "#5585BE", flexShrink: 0, fontFamily: "var(--font-caveat)", fontSize: "0.9rem", marginTop: "1px" }}>·*</span>
+              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.82rem", lineHeight: 1.75, color: "var(--text-primary)", margin: 0 }}>{point}</p>
+            </div>
+          ))}
+        </div>
+        {/* Business Impact */}
+        <div>
+          <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.3rem", fontWeight: 500, color: "#5585BE", marginBottom: "1rem", letterSpacing: "0.01em" }}>Business Impact</p>
+          <div style={{ background: "#fff", border: "1px solid #BEDAF2", padding: "1.2rem 1.4rem" }}>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.85, color: "var(--text-muted)", margin: 0 }}>
+              Customer income is highly unevenly distributed. Segmenting customers by income level rather than relying on average income may provide more accurate targeting and planning decisions.
+            </p>
+          </div>
+          {/* 80th percentile highlight */}
+          <div style={{ marginTop: "1rem", background: "#BEDAF2", padding: "1rem 1.4rem", display: "flex", alignItems: "center", gap: "1rem" }}>
+            <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "2.2rem", fontWeight: 400, color: "#5585BE", margin: 0, lineHeight: 1 }}>$143k</p>
+            <div>
+              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#5585BE", margin: "0 0 0.2rem" }}>Est. 80th Percentile</p>
+              <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#5585BE", opacity: 0.75, margin: 0 }}>Gamma model · bootstrap CI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div> 
+)}
+
+</div>
+</div>
+
       )}
     </>
   );
