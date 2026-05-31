@@ -909,8 +909,8 @@ export default function Home()
                 {/* ── GALLERY ── */}
 <div style={{ padding: "2rem 2.5rem 3rem", borderTop: "1px solid var(--border-color)" }}>
 
-  <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#C27088", marginBottom: "1.5rem" }}>
-    ✿ gallery
+  <p style={{ fontFamily: "var(--font-caveat)", fontSize: "1.1rem", color: "#5A8060", marginBottom: "1.5rem" }}>
+    𖡼.𖤣 gallery 𖥧𖡼.
   </p>
 
   {[
@@ -999,7 +999,7 @@ export default function Home()
               <div style={{ padding: "0.6rem 0.8rem 0.7rem", background: "var(--cream)", borderTop: "1px solid var(--border-color)" }}>
                 <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.72rem", color: "var(--text-muted)", marginBottom: "0.2rem", opacity: 0.6 }}>Element options.gif</p>
                 <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.75rem", lineHeight: 1.6, color: "var(--text-muted)", margin: 0 }}>
-                  Press <span style={{ color: "#C27088" }}>I</span> to open the <span style={{ color: "#C27088" }}>element menu</span>, use <span style={{ color: "#C27088" }}>J / L</span> to <span style={{ color: "#C27088" }}>navigate</span>, and <span style={{ color: "#C27088" }}>K</span> to <span style={{ color: "#C27088" }}>confirm</span>.
+                  Press <span style={{ color: "#5A8060" }}>I</span> to open the <span style={{ color: "#C27088" }}>element menu</span>, use <span style={{ color: "#C27088" }}>J / L</span> to <span style={{ color: "#C27088" }}>navigate</span>, and <span style={{ color: "#C27088" }}>K</span> to <span style={{ color: "#C27088" }}>confirm</span>.
                 </p>
               </div>
             </div>
@@ -1049,8 +1049,8 @@ export default function Home()
         style={{
           width: "100%", display: "flex", alignItems: "center",
           justifyContent: "space-between",
-          background: openSection === idx ? "#F8EEEF" : "var(--cream-dark)",
-          border: `1px solid ${openSection === idx ? "#EDD5D8" : "var(--border-color)"}`,
+          background: openSection === idx ? "#E2EDE0" : "#F0F5EF",
+          border: `1px solid ${openSection === idx ? "#C5D5C0" : "#C5D5C0"}`,
           padding: "0.7rem 1rem",
           cursor: "pointer",
           transition: "background 0.2s",
@@ -1060,15 +1060,15 @@ export default function Home()
           <span style={{
             fontFamily: "var(--font-caveat)",
             fontSize: "0.75rem",
-            color: openSection === idx ? "#C27088" : "var(--text-muted)",
+            color: openSection === idx ? "#5A8060" : "var(--text-muted)",
             letterSpacing: "0.05em",
           }}>
-            {openSection === idx ? "✿" : "◎"}
+            {openSection === idx ? "𖤣" : "𖥧"}
           </span>
           <span style={{
             fontFamily: "var(--font-caveat)",
             fontSize: "0.95rem",
-            color: openSection === idx ? "#C27088" : "var(--text-muted)",
+            color: openSection === idx ? "#5A8060" : "var(--text-muted)",
             fontWeight: openSection === idx ? 600 : 400,
           }}>
             {section.title}
@@ -1077,7 +1077,7 @@ export default function Home()
         <span style={{
           fontFamily: "var(--font-dm-sans)",
           fontSize: "0.65rem",
-          color: openSection === idx ? "#C27088" : "var(--text-muted)",
+          color: openSection === idx ? "#5A8060" : "var(--text-muted)",
           letterSpacing: "0.1em",
         }}>
           {openSection === idx ? "▲ close" : "▼ open"}
@@ -1087,10 +1087,10 @@ export default function Home()
       {/* Accordion content */}
       {openSection === idx && (
         <div style={{
-          border: "1px solid #EDD5D8",
+          border: "1px solid #C5D5C0",
           borderTop: "none",
           padding: "1.2rem 1rem",
-          background: "#FFFCFC",
+          background: "#F5FAF5",
         }}>
           {section.content}
         </div>
