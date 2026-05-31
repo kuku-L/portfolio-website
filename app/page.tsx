@@ -1657,11 +1657,11 @@ export default function Home()
       <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.95rem", color: "var(--text-muted)", margin: 0 }}>ﾟ｡ Manager Takeaways ·*</p>
       <div style={{ height: "1px", flex: 1, background: "#5585BE", opacity: 0.2 }} />
     </div>
-    <div style={{ border: "2px solid #BEDAF2", background: "#EDF4FB", padding: "2rem" }}>
+    <div style={{ background: "#2A3A52", padding: "2rem" }}>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
         {/* Key Findings */}
         <div>
-          <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.3rem", fontWeight: 500, color: "#5585BE", marginBottom: "1rem", letterSpacing: "0.01em" }}>Key Findings</p>
+          <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.3rem", fontWeight: 500, color: "#BEDAF2", marginBottom: "1rem", letterSpacing: "0.01em" }}>Key Findings</p>
           {[
             "Most customers belong to lower income brackets, with a small number of high-income outliers.",
             "Income distributions are strongly right-skewed and do not follow a normal distribution.",
@@ -1670,25 +1670,24 @@ export default function Home()
             "Bootstrap analysis provides a reliable uncertainty range for decision-making.",
           ].map((point, i) => (
             <div key={i} style={{ display: "flex", gap: "0.75rem", marginBottom: "0.75rem", alignItems: "flex-start" }}>
-              <span style={{ color: "#5585BE", flexShrink: 0, fontFamily: "var(--font-caveat)", fontSize: "0.9rem", marginTop: "1px" }}>·*</span>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.82rem", lineHeight: 1.75, color: "var(--text-primary)", margin: 0 }}>{point}</p>
+              <span style={{ color: "#BEDAF2", flexShrink: 0, fontFamily: "var(--font-caveat)", fontSize: "0.9rem", marginTop: "1px" }}>·*</span>
+              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.82rem", lineHeight: 1.75, color: "#BEDAF2", margin: 0 }}>{point}</p>
             </div>
           ))}
         </div>
         {/* Business Impact */}
         <div>
-          <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.3rem", fontWeight: 500, color: "#5585BE", marginBottom: "1rem", letterSpacing: "0.01em" }}>Business Impact</p>
-          <div style={{ background: "#fff", border: "1px solid #BEDAF2", padding: "1.2rem 1.4rem" }}>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.85, color: "var(--text-muted)", margin: 0 }}>
+          <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.3rem", fontWeight: 500, color: "#BEDAF2", marginBottom: "1rem", letterSpacing: "0.01em" }}>Business Impact</p>
+          <div style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(190,218,242,0.3)", padding: "1.2rem 1.4rem" }}>            <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.83rem", lineHeight: 1.85, color: "#C8D8E8", margin: 0 }}>
               Customer income is highly unevenly distributed. Segmenting customers by income level rather than relying on average income may provide more accurate targeting and planning decisions.
             </p>
           </div>
           {/* 80th percentile highlight */}
-          <div style={{ marginTop: "1rem", background: "#BEDAF2", padding: "1rem 1.4rem", display: "flex", alignItems: "center", gap: "1rem" }}>
-            <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "2.2rem", fontWeight: 400, color: "#5585BE", margin: 0, lineHeight: 1 }}>$143k</p>
+          <div style={{ marginTop: "1rem", background: "rgba(190,218,242,0.15)", border: "1px solid rgba(190,218,242,0.25)", padding: "1rem 1.4rem", display: "flex", alignItems: "center", gap: "1rem" }}>
+            <p style={{ fontFamily: "var(--font-cormorant)", fontSize: "2.2rem", fontWeight: 400, color: "#BEDAF2", margin: 0, lineHeight: 1 }}>$143k</p>
             <div>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#5585BE", margin: "0 0 0.2rem" }}>Est. 80th Percentile</p>
-              <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#5585BE", opacity: 0.75, margin: 0 }}>Gamma model · bootstrap CI</p>
+              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#BEDAF2", margin: "0 0 0.2rem" }}>Est. 80th Percentile</p>
+              <p style={{ fontFamily: "var(--font-caveat)", fontSize: "0.8rem", color: "#BEDAF2", opacity: 0.75, margin: 0 }}>Gamma model · bootstrap CI</p>
             </div>
           </div>
         </div>
